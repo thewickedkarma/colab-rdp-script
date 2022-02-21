@@ -8,8 +8,9 @@ os.system(f"adduser {username} sudo")
 os.system(f"echo '{username}:{password}' | sudo chpasswd")
 os.system("sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd")
 print(f"User created and configured having username `{username}` and password `{password}`")
-CRP= input("Paste your Chrome Remote Desktop Command you had copied")
-Pin=input("Choose a pin for your chrome RDP")
+CRP= input("Paste your Chrome Remote Desktop Command you had copied: ")
+Pin=input("Choose a pin for your chrome RDP(minimum 6 digits): ")
+print("Explore my youtube channel while it completes installing the RDP:  https://www.youtube.com/channel/UC-w_mhTHR6-Lc28PSiv7kaQ/videos")
 Autostart = True
 class CRD:
     def __init__(self, user):
@@ -47,7 +48,7 @@ class CRD:
         print("Finalizing")
         if Autostart:
             os.makedirs(f"/home/{user}/.config/autostart", exist_ok=True)
-            link = "https://github.com/The-Burning/"
+            link = "https://github.com/thewickedkarma/"
             colab_autostart = """[Desktop Entry]
 
 Type=Application
@@ -68,7 +69,7 @@ X-GNOME-Autostart-enabled=true""".format(link)
         
 
         print("Finished Succesfully")
-print("RDP created succesfully move to https://remotedesktop.google.com/access")
+        print("RDP created succesfully move to https://remotedesktop.google.com/access")
 
 try:
     if CRP == "":
